@@ -1,0 +1,9 @@
+# Ignore the virtual environment folder
+venv/
+
+# Ignore Python cache files
+__pycache__/
+
+.DS_Store
+
+household_power_consumption.csv
