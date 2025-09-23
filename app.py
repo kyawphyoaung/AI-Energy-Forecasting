@@ -3,6 +3,7 @@ import pandas as pd
 import os
 from prophet import Prophet
 from prophet.plot import plot_plotly
+import plotly.graph_objects as go
 
 st.set_page_config(
     layout="wide",
@@ -17,10 +18,10 @@ DATA_URL = "https://storage.googleapis.com/kagglesdsdata/datasets/8331998/131505
 
 @st.cache_data
 def load_data():
-    if "IS_DEPLOYED" in st.secrets:
-        source = DATA_URL
-    elif os.path.exists(LOCAL_DATA_PATH):
+    if os.path.exists(LOCAL_DATA_PATH):
         source = LOCAL_DATA_PATH
+    elif "IS_DEPLOYED" in st.secrets:
+        source = DATA_URL
     else:
         source = DATA_URL
     
@@ -42,9 +43,9 @@ def load_data():
     return df_daily
 
 @st.cache_data
-def create_forecast(df):
+def create_forecast(_df):
     model = Prophet()
-    model.fit(df)
+    model.fit(_df)
     future = model.make_future_dataframe(periods=365)
     forecast = model.predict(future)
     return forecast, model
