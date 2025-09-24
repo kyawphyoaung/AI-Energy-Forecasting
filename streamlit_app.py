@@ -25,17 +25,16 @@ def load_data():
     else:
         source = DATA_URL
     
-    read_params = {
-        'sep': ';',
-        'parse_dates': {'dt': ['Date', 'Time']},
-        'infer_datetime_format': True,
-        'low_memory': False,
-        'na_values': ['nan', '?']
-    }
-    if 'kaggle.com' in source or 'googleapis.com' in source:
-        read_params['compression'] = 'zip'
-
-    df = pd.read_csv(source, **read_params)
+    # We removed the logic that added 'compression=zip'
+    # Now pandas will read the CSV directly, which is correct for our URL.
+    df = pd.read_csv(
+        source,
+        sep=';',
+        parse_dates={'dt': ['Date', 'Time']},
+        infer_datetime_format=True,
+        low_memory=False,
+        na_values=['nan', '?']
+    )
     df = df.set_index('dt')
     df_daily = df['Global_active_power'].resample('D').sum().reset_index()
     df_daily.rename(columns={'dt': 'ds', 'Global_active_power': 'y'}, inplace=True)
