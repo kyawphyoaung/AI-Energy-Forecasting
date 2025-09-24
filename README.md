@@ -19,7 +19,7 @@ A web application built for the **AI & Sustainability Hackathon 2025**. This pro
 - **Web Framework:** Streamlit
 - **Data Manipulation:** Pandas
 - **Time-Series Forecasting:** Prophet (by Meta)
-- **AI Advisory Layer:** Google Gemini
+- **AI Advisory Layer:** 
 
 ## 🚀 Getting Started: Setup & Installation
 
@@ -30,8 +30,8 @@ Follow these steps to set up the project on your local machine.
 First, clone the project repository to your local machine.
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/energy-forecaster.git](https://github.com/YOUR_USERNAME/energy-forecaster.git)
-cd energy-forecaster
+git clone https://github.com/kyawphyoaung/AI-Energy-Forecasting.git
+cd AI-Energy-Forecasting
 ```
 
 ## 2. Create and Activate the Virtual Environment
@@ -58,14 +58,14 @@ Install all the required libraries from the requirements.txt file.
 
 ```Bash
 pip install -r requirements.txt
-This single command ensures that every team member has an identical environment.
 ```
 
 # ▶️ How to Run the App
 To run the app on your local server, use the following command:
 
-Bash
-streamlit run app.py
+```Bash
+streamlit run streamlit_app.py
+```
 Your web browser will automatically open a new tab at http://localhost:8501.
 
 # 🤝 Team Workflow & Contributing
@@ -97,6 +97,6 @@ Important: Always run git pull to get the latest updates before you start workin
 # ☁️ Deployment
 This application is deployed on Streamlit Community Cloud.
 
-**Live App URL**: [Link will be added here once deployed]
+**Live App URL**: https://ai-energy-forecasting.streamlit.app/
 
 Note: The live app will automatically update whenever new changes are pushed to the main branch.
